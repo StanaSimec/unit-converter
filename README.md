@@ -2,16 +2,16 @@
 
 ### Solution for the [unit-converter](https://roadmap.sh/projects/unit-converter) project from [roadmap.sh](https://roadmap.sh).
 
-## Open project
+## How to open the project
 ```
 git clone git@github.com:StanaSimec/unit-converter.git
 cd unit-converter
 ```
-## Run application
+
+## How to run the app
 ```
 .gradlew/ bootRun
 ```
-## How to user unit converter
-```
-open your browser on localhost:8080
-```
+
+## How to use unit converter
+Open browser on localhost:8080
