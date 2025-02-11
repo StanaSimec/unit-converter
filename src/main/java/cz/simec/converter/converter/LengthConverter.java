@@ -7,7 +7,7 @@ import java.util.Map;
 @Component
 public class LengthConverter extends Converter {
 
-    private static final Map<String, Double> unitsList = Map.of(
+    private static final Map<String, Double> units = Map.of(
             "km", 1000.0,
             "m", 1.0,
             "cm", 0.01,
@@ -18,6 +18,6 @@ public class LengthConverter extends Converter {
 
     @Override
     public Map<String, Double> getUnitsMap() {
-        return unitsList;
+        return units;
     }
 }

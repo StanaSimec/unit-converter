@@ -27,14 +27,23 @@ public class LengthController {
     }
 
     @GetMapping("/convert")
-    public String convert(@ModelAttribute UnitForm lengthForm, Model model) {
-        model.addAttribute("form", lengthForm);
+    public String convert(@ModelAttribute UnitForm form, Model model) {
+        if (!isFormValid(form)) {
+            return "redirect:/";
+        }
+        model.addAttribute("form", form);
         double convertedAmount = converter.convert(
-                lengthForm.getStartUnitName(),
-                lengthForm.getEndUnitName(),
-                lengthForm.getAmount()
+                form.getStartUnitName(),
+                form.getEndUnitName(),
+                form.getAmount()
         );
         model.addAttribute("endAmount", convertedAmount);
         return "result";
+    }
+
+    private boolean isFormValid(UnitForm unitForm) {
+        return unitForm.getAmount() > 0.0
+                && converter.getUnitsMap().containsKey(unitForm.getStartUnitName())
+                && converter.getUnitsMap().containsKey(unitForm.getEndUnitName());
     }
 }
