@@ -24,7 +24,7 @@
     </ul>
     <p class="pt-3">Result of the calculation</p>
     <p>
-        <strong th:text="${form.amount} + ' ' + ${form.startUnitName} + ' = ' + ${endAmount} + ' ' + ${form.endUnitName}">
+        <strong th:text="${#numbers.formatDecimal(form.amount, 0, 1)} + ' ' + ${form.startUnitName} + ' = ' + ${#numbers.formatDecimal(endAmount, 0, 1)} + ' ' + ${form.endUnitName}">
         </strong>
     </p>
     <a th:href="@{/}" class="btn btn-primary">Reset</a>
